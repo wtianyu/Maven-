@@ -1,4 +1,4 @@
-package com.wonder.util;
+ï»¿package com.wonder.util;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -8,34 +8,34 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class MyAOP {
 	@Pointcut("execution(* com.wonder.controller..*.*(..))")  
-	private void execute(){}//¶¨ÒåÒ»¸öÇĞÈëµã  
+	private void execute(){}//å®šä¹‰ä¸€ä¸ªåˆ‡å…¥ç‚¹  
 
 	@Before("execute() && args(name)")  
 	public void doAccessCheck(String name){  
 		System.out.println(name);  
-		System.out.println("Ç°ÖÃÍ¨Öª");  
+		System.out.println("å‰ç½®é€šçŸ¥");  
 	}  
 
 	@AfterReturning("execute()")  
 	public void doAfter(){  
-		System.out.println("ºóÖÃÍ¨Öª");  
+		System.out.println("åç½®é€šçŸ¥");  
 	}  
 
 	@After("execute()")  
 	public void after(){  
-		System.out.println("×îÖÕÍ¨Öª");  
+		System.out.println("æœ€ç»ˆé€šçŸ¥");  
 	}  
 
 	@AfterThrowing("execute()")  
 	public void doAfterThrow(){  
-		System.out.println("ÀıÍâÍ¨Öª");  
+		System.out.println("ä¾‹å¤–é€šçŸ¥");  
 	}  
 
 	@Around("execute()")  
 	public Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable{  
-		System.out.println("½øÈë»·ÈÆÍ¨Öª");  
-		Object object = pjp.proceed();//Ö´ĞĞ¸Ã·½·¨  
-		System.out.println("ÍË³ö·½·¨");  
+		System.out.println("è¿›å…¥ç¯ç»•é€šçŸ¥");  
+		Object object = pjp.proceed();//æ‰§è¡Œè¯¥æ–¹æ³•  
+		System.out.println("é€€å‡ºæ–¹æ³•");  
 		return null;  
 	}  
 }
